@@ -1,0 +1,30 @@
+<h1>SearchResult</h1>
+<%= link_to 'Back', dashboard_path%>
+<div>
+	<% if @books %>
+		<% @books.each do |book| %>
+		<hr align = "center" style = "width : 300px">
+		<table align = "center" cellpadding = "7" cellspacing = "7">
+			<tr>
+				<td>Title:</td>
+				<td><%= book.title %></td>
+			</tr>
+			<tr>
+				<td>Author:</td>
+				<td><%= book.author %></td>
+			</tr>
+			<tr>
+				<td>ISBN:</td>
+				<td><%= book.isbn %></td>
+			</tr>
+			<tr>
+				<td>quantity:</td>
+				<td><%= book.quantity %></td>
+			</tr>
+				
+  	</table> 		
+  <% end %>
+  <% else %>
+   <h1>No result</h1>
+   <% end %>
+</div>

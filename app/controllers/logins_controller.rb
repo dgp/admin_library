@@ -11,7 +11,7 @@ class LoginsController < ApplicationController
     if user
       session[:User] = user
       puts session[:User]
-      redirect_to :action => "index", :controller => "books", :notice => "Logged In!"
+      redirect_to :action => "dashboard", :controller => "books", :notice => "Logged In!"
     else
       redirect_to logins_path, :notice => "Invalid user"
     end

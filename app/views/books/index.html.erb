@@ -1,15 +1,17 @@
 <div align = "right">
-<% form_tag books_path, :method => 'get' do %>
+<!-- <% form_tag books_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
-<% end %>
+<% end %> -->
 </div>
 <h1 align = "center">Books</h1>
 <div align = "center">
 	<h3>
+		<%= link_to 'Home', root_url%>
 		<%= link_to 'Add', new_book_path %>
+		
 	</h3>
 </div>
 <br/>
@@ -39,7 +41,5 @@
   <tr >
 		<td colspan = "2"><hr style = "width: 250px"></td>
   </tr>
-	
-	
 <% end %>
 </table>

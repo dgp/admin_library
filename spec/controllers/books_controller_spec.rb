@@ -22,7 +22,7 @@ describe BooksController do
   it "should display the books" do
     Book.create({:title => "Ruby", :author => "Rails", :isbn => "12QWE", :quantity => "4" })
     get :index
-    assigns(:books).should_not be_nil 
+    assigns(:bookss).should_not be_nil 
   end
 
   it "should update the book" do
@@ -30,7 +30,7 @@ describe BooksController do
 
     put :update, :id => book.id, :book => {:title => "Ru", :author => "Rai", :isbn => "12QWE", :quantity => "3" }
     assigns(:book).should eq(book)
-    response.should redirect_to(book)
+    response.should redirect_to(books_path)
   end 
   
   it "should edit the books" do    
@@ -38,4 +38,13 @@ describe BooksController do
     get :edit, :id => book.id.to_s
     assigns(:book).should eq(book)
   end
+  
+  
+  it "should search the title from the book" do
+    book = Book.create :title => "Ruby", :author => "Rails", :isbn => "12QWE", :quantity => "3" 
+    get :search, :search => "Ruby"
+    assigns(:book).should eq(@books)
+    response.should redirect_to(search_result_path)
+  end
+  
 end

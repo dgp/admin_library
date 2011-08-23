@@ -1,8 +1,0 @@
-<h1>Dashboard#index</h1>
-<div align = "right">
-<% form_tag :controller => "search_result", :action => "search", :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search], :id => "search_field" %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>

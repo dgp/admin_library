@@ -5,7 +5,6 @@ class BooksController < ApplicationController
   
   def create
     @book = Book.new(params[:book])
-    puts params[:book]
     if @book.save
       redirect_to :action => "index", :controller => "books"
     else
@@ -18,7 +17,6 @@ class BooksController < ApplicationController
   end
   
   def edit
-    puts params[:id]
     @book = Book.find(params[:id])
   end
   
@@ -29,5 +27,10 @@ class BooksController < ApplicationController
     else
       render :action => "edit"
     end
+  end
+  
+  def search
+    search_word = params[:search]
+    @books = Book.find(:all, :conditions => ['title LIKE ? OR author LIKE ?', "%#{search_word}%", "%#{search_word}%"] )
   end
 end

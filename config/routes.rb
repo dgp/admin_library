@@ -1,17 +1,17 @@
 AdminLibrary::Application.routes.draw do
   
-  get "search_result/index"
+  
+  match "search_result" => "books#search_result"
+  match "dashboard" => "books#dashboard"
+  resources :logins
+  resources :signups
 
-  get "mybooks/index"
+  resources :books do
+    collection do
+      get 'search'
+    end
+  end
 
-  get "dashboard/index"
-
-  get "homes/index"
-
-  get "logins/new"
-
-  get "signups/new"
-  resources :books
   root :to => "homes#index"
   
   get "logout" => "logins#destroy", :as => "logout"
