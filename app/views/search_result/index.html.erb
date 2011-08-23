@@ -1,0 +1,24 @@
+<h1>SearchResult#index</h1>
+<div>
+	<% @search_result.each do |result| %>
+		<table>
+			<tr>
+				<td>Title:</td>
+				<td>result.title</td>
+			</tr>
+			<tr>
+				<td>Author:</td>
+				<td>result.author</td>
+			</tr>
+			<tr>
+				<td>ISBN:</td>
+				<td>result.isbn</td>
+			</tr>
+			<tr>
+				<td>quantity:</td>
+				<td>result.quantity</td>
+			</tr>
+				
+  	</table> 		
+  <% end %>
+</div>

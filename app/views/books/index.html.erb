@@ -1,0 +1,45 @@
+<div align = "right">
+<% form_tag books_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+</div>
+<h1 align = "center">Books</h1>
+<div align = "center">
+	<h3>
+		<%= link_to 'Add', new_book_path %>
+	</h3>
+</div>
+<br/>
+<br/>
+
+<table align = "center" cellpadding = "6" cellspacing = "6">
+<% @books.each do |book| %>
+  <tr>
+	<td>Title:</td>
+    <td><%= book.title %></td>
+  </tr>
+  <tr>
+	<td>Author:</td>
+    <td><%= book.author %></td>
+  </tr>
+  <tr>
+	<td>ISBN:</td>
+    <td><%= book.isbn %></td>
+  </tr>
+  <tr>
+	<td>Quantity:</td>
+	<td><%= book.quantity %></td>
+	</tr>
+	<tr>
+		<td><%= link_to 'Edit', edit_book_path(book) %></td>
+	</tr>
+  <tr >
+		<td colspan = "2"><hr style = "width: 250px"></td>
+  </tr>
+	
+	
+<% end %>
+</table>

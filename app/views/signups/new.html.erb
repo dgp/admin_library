@@ -1,0 +1,24 @@
+<h1>Sign Up</h1>
+
+	<%= form_for :signups, @signups, :url => { :action=>"create", :controller=>"signups"} do |f|%>
+  <% if @signup.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :email_id %><br />
+    <%= f.text_field :email_id %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <p class="button"><%= f.submit "create"%></p>
+<% end %>
+
+<%= link_to "Back", root_url%>
